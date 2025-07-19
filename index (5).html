@@ -51,12 +51,12 @@
     .arrow {
       position: absolute;
       top: 60px;
-      right: -20px;
+      right: -25px;
       width: 0;
       height: 0;
       border-top: 15px solid transparent;
       border-bottom: 15px solid transparent;
-      border-left: 20px solid #ffd700;
+      border-left: 20px solid #FFD700;
       z-index: 10;
     }
     .btn {
@@ -96,14 +96,37 @@
   <div class="reel-container">
     <div class="arrow"></div>
     <div id="reel" class="reel">
+      <!-- Слоты: дублируем 3 раза -->
       <div class="item">25 FP</div>
       <div class="item">+500% К ДЕПОЗИТУ</div>
       <div class="item">БОНУСКА ЗА 30.000₽</div>
       <div class="item">+220% К ДЕПОЗИТУ</div>
       <div class="item">ВАУЧЕР НА 10.000₽</div>
-      <div class="item">500 FP</div>
+      <div class="item">500FP</div>
       <div class="item">БОНУСКА ЗА 10.000₽</div>
-      <div class="item">50 FP</div>
+      <div class="item">50FP</div>
+      <div class="item">1 XRP</div>
+      <div class="item">ШАНС Х2</div>
+
+      <div class="item">25 FP</div>
+      <div class="item">+500% К ДЕПОЗИТУ</div>
+      <div class="item">БОНУСКА ЗА 30.000₽</div>
+      <div class="item">+220% К ДЕПОЗИТУ</div>
+      <div class="item">ВАУЧЕР НА 10.000₽</div>
+      <div class="item">500FP</div>
+      <div class="item">БОНУСКА ЗА 10.000₽</div>
+      <div class="item">50FP</div>
+      <div class="item">1 XRP</div>
+      <div class="item">ШАНС Х2</div>
+
+      <div class="item">25 FP</div>
+      <div class="item">+500% К ДЕПОЗИТУ</div>
+      <div class="item">БОНУСКА ЗА 30.000₽</div>
+      <div class="item">+220% К ДЕПОЗИТУ</div>
+      <div class="item">ВАУЧЕР НА 10.000₽</div>
+      <div class="item">500FP</div>
+      <div class="item">БОНУСКА ЗА 10.000₽</div>
+      <div class="item">50FP</div>
       <div class="item">1 XRP</div>
       <div class="item">ШАНС Х2</div>
     </div>
@@ -121,16 +144,16 @@
 
       const reel = document.getElementById('reel');
       const heightPerItem = 60;
-      const targetIndex = 10 - 1;
+      const targetIndex = 30 - 5; // ШАНС Х2 в центре
       const finalOffset = (targetIndex - 1) * heightPerItem;
-      reel.style.transform = `translateY(-${finalOffset}px)`;
+      reel.style.transform = 'translateY(-' + finalOffset + 'px)';
 
       document.getElementById('spinBtn').disabled = true;
 
       setTimeout(() => {
         showFireworks();
         changeButton();
-      }, 7500); // ждём пока докрутится
+      }, 7500);
     }
 
     function changeButton() {
@@ -171,7 +194,7 @@
       ctx.fillStyle = "rgba(0,0,0,0.2)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       particles.forEach(p => {
-        ctx.fillStyle = `rgba(255,215,0,${p.alpha})`;
+        ctx.fillStyle = 'rgba(255,215,0,' + p.alpha + ')';
         ctx.beginPath();
         ctx.arc(p.x, p.y, 3, 0, 2 * Math.PI);
         ctx.fill();
